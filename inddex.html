@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navigator</title>
+  <script>
+    function qattaman() {
+      if (!navigator.geolocation) {
+        alert("Aniqlashning imkoni mavjud emas!");
+        return false;
+      }
+
+      function topti(joy) {
+        location.href = "https://google.com/" +
+          "maps/?q=" + joy.coords.longitude;
+      }
+
+      function xato() {
+        alert("Joylashuvni aniqlab bo'lmadi!");
+      }
+      navigator.geolocation.getCurrentPosition(topti, xato);
+    }
+  </script>
+</head>
+
+<body>
+  <input type="button" value="Joylashuvni ko'rsat" onclick="qattaman();">
+</body>
+
+</html>
